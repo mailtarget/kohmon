@@ -17,7 +17,7 @@ val Dispatchers.Background: CoroutineDispatcher get() = threadPool.asCoroutineDi
 
 fun CoroutineDispatcher.createJob(): CoroutineJob = CoroutineJob(this)
 
-fun CoroutineDispatcher.run(block: suspend () -> Unit): Job = CoroutineJob(this).run(block)
+fun CoroutineDispatcher.run(block: suspend () -> Unit): Job = CoroutineJob(this).start(block)
 
 open class CoroutineJob(private val dispatcher: CoroutineDispatcher = Dispatchers.Default): CoroutineScope {
     private val job = Job()
@@ -27,5 +27,5 @@ open class CoroutineJob(private val dispatcher: CoroutineDispatcher = Dispatcher
 
     open fun stop() { job.cancel() }
 
-    fun run(block: suspend () -> Unit): Job = launch { block() }
+    fun start(block: suspend () -> Unit): Job = launch { block() }
 }
