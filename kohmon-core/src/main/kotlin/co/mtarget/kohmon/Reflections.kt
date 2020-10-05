@@ -2,15 +2,14 @@ package co.mtarget.kohmon
 
 import java.math.BigDecimal
 import java.math.BigInteger
-import kotlin.reflect.KClass
-import kotlin.reflect.KFunction
-import kotlin.reflect.KParameter
-import kotlin.reflect.KType
-import kotlin.reflect.full.callSuspendBy
-import kotlin.reflect.full.extensionReceiverParameter
-import kotlin.reflect.full.instanceParameter
+import kotlin.reflect.*
+import kotlin.reflect.full.*
 import kotlin.reflect.jvm.javaType
 import kotlin.reflect.jvm.jvmErasure
+
+fun KClass<*>.property(name: String): KProperty<*>? = this.memberProperties.firstOrNull { it.name == name }
+
+fun KClass<*>.function(name: String): KFunction<*>? = this.memberFunctions.firstOrNull { it.name == name }
 
 fun KType.isCollection() = Collection::class.isAssignableFrom(this)
 
@@ -70,14 +69,13 @@ fun KType.isPrimitive(): Boolean {
 
 fun KType.isPrimitiveLike(): Boolean {
     return when {
-        isAssignableFrom(String::class) ||
+        isPrimitive() ||
                 isAssignableFrom(Short::class) ||
                 isAssignableFrom(BigDecimal::class) ||
                 isAssignableFrom(BigInteger::class) ||
                 isAssignableFrom(Number::class) ||
                 isAssignableFrom(CharArray::class) ||
-                isAssignableFrom(Char::class)
-                || isAssignableFrom(Short::class) -> true
+                isAssignableFrom(Char::class)  -> true
         else -> false
     }
 }

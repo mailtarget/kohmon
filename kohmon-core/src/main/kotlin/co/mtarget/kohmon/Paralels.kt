@@ -5,8 +5,13 @@ import kotlinx.coroutines.async
 import kotlinx.coroutines.coroutineScope
 import kotlin.coroutines.CoroutineContext
 
-// ref. https://stackoverflow.com/questions/45575516/kotlin-process-collection-in-parallel/45794421#45794421
-// ref. https://jivimberg.io/blog/2018/05/04/parallel-map-in-kotlin/
+/**
+ * this will process foreach using parallel process
+ * will deprecated and change to flow
+ *
+ * ref. https://stackoverflow.com/questions/45575516/kotlin-process-collection-in-parallel/45794421#45794421
+ * ref. https://jivimberg.io/blog/2018/05/04/parallel-map-in-kotlin/
+ */
 suspend fun <A> Collection<A>.forEachParallel(
     context: CoroutineContext = Dispatchers.Default,
     fn: suspend (A) -> Unit

@@ -21,3 +21,10 @@ fun Date.get(period: Int): Int = this.toCalendar().get(period)
 fun Date.dayOfWeek() = get(Calendar.DAY_OF_WEEK)
 
 fun Date.dayOfMonth() = get(Calendar.DAY_OF_MONTH)
+
+fun Date.withTime(hours: Int, minutes: Int): Date = toCalendar().apply {
+    set(Calendar.HOUR_OF_DAY, hours)
+    set(Calendar.MINUTE, minutes)
+}.time
+
+fun Date.resetTime() = withTime(0, 0)

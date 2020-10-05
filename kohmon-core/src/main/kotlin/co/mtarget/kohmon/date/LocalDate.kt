@@ -3,16 +3,24 @@ package co.mtarget.kohmon.date
 import java.time.LocalDate
 import java.time.LocalDateTime
 import java.time.ZoneId
+import java.time.ZonedDateTime
 import java.util.*
 
-fun LocalDateTime.toDate(): Date =
-    Date.from(atZone(ZoneId.systemDefault()).toInstant())
+val timeZoneDefault = ZoneId.systemDefault()
 
-fun Date.toLocalDateTime(): LocalDateTime =
-    toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime()
+fun LocalDateTime.toDate(zoneId: ZoneId = timeZoneDefault): Date =
+    Date.from(atZone(zoneId).toInstant())
 
-fun Date.toLocalDate(): LocalDate =
-    this.toInstant().atZone(ZoneId.systemDefault()).toLocalDate()
+fun Date.toLocalDateTime(zoneId: ZoneId = timeZoneDefault): LocalDateTime =
+    toInstant().atZone(zoneId).toLocalDateTime()
 
-fun LocalDate.toDate(): Date =
-    Date.from(atStartOfDay().atZone(ZoneId.systemDefault()).toInstant())
+fun Date.toLocalDate(zoneId: ZoneId = timeZoneDefault): LocalDate =
+    this.toInstant().atZone(zoneId).toLocalDate()
+
+fun LocalDate.toDate(zoneId: ZoneId = timeZoneDefault): Date =
+    Date.from(atStartOfDay().atZone(zoneId).toInstant())
+
+fun Date.toZonedDateTime(zoneId: ZoneId = timeZoneDefault): ZonedDateTime =
+        ZonedDateTime.ofInstant(toInstant(), zoneId)
+
+fun ZonedDateTime.toDate(): Date = Date.from(this.toInstant())

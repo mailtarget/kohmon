@@ -3,20 +3,14 @@ package co.mtarget.kohmon.string
 import java.net.MalformedURLException
 import java.net.URL
 
-const val ALPHANUMERIC_PATTERN = "[a-zA-Z0-9]"
-const val NUMERIC_PATTERN = "[0-9]"
-const val ALPHABETH_PATTERN = "[a-zA-Z]"
-const val HEX_STRING = "[0-9A-Fa-f]"
-const val NUMBER_PATTERN = "-?\\d+(\\.\\d+)?"
-
-fun String.toMatchRegex() = "^$this+\$".toRegex()
-
-fun String.toContainsRegex() = ".*$this.*".toRegex()
-
-fun String.toRegexIgnoreCase() = this.toRegex(RegexOption.IGNORE_CASE)
-
+/**
+ * check if string contains letter
+ */
 val String.isContainLetters get() = matches(ALPHABETH_PATTERN.toContainsRegex())
 
+/**
+ * check if string contains number
+ */
 val String.isContainNumbers get() = matches(NUMERIC_PATTERN.toContainsRegex())
 
 /**
@@ -48,4 +42,32 @@ val String.isUrl
         false
     }
 
+/**
+ * check if string match hexadecimal representation
+ */
 val String?.isHexString get() = this?.matches(HEX_STRING.toMatchRegex()) ?: false
+
+/**
+ * check if string match phone number
+ */
+val String.isPhoneNumber
+    get() = matches(PHONE_PATTERN.toMatchRegex())
+
+/**
+ * check if string match ip address
+ */
+val String.isIPAddress
+    get() = matches(IP_ADDRESS_PATTERN.toMatchRegex())
+
+/**
+ * check if string match web url
+ */
+val String.isWebUrl
+    get() = if (matches(WEB_URL.toMatchRegex())) true else matches(AUTOLINK_WEB_URL.toMatchRegex())
+
+/**
+ * check if string match email format
+ */
+val String.isEmail
+    get() = if (matches(EMAIL_PATTERN.toMatchRegex())) true
+    else matches(AUTOLINK_EMAIL_ADDRESS.toMatchRegex())
