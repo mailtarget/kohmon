@@ -45,7 +45,7 @@ class CoroutineTest {
             counter2.incrementAndGet()
         }
         val counter3 = AtomicInteger()
-        data.forEachParallelIndexed { i, s ->
+        data.forEachParallelIndexed { i, _ ->
             counter3.addAndGet(i+1)
         }
         assert(counter1.get() == 3)

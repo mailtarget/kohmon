@@ -25,7 +25,7 @@ class ReflectionsTest {
     fun reflectionTest() {
         val count = Counter::class.property("count")
         assertNotNull(count)
-        assert(count.returnType.isPrimitiveLike() ?: false)
+        assert(count.returnType.isPrimitiveLike())
         val data = Counter::class.property("data")
         assertNotNull(data)
         assert(data.returnType.isArrayOrCollection())
