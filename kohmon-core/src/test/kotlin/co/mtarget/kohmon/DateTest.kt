@@ -3,6 +3,7 @@ package co.mtarget.kohmon
 import co.mtarget.kohmon.date.*
 import org.junit.Test
 import java.time.format.DateTimeFormatter
+import java.util.*
 import kotlin.test.assertNotNull
 
 class DateTest {
@@ -48,6 +49,8 @@ class DateTest {
         assert(date1.plusYears().dayOfMonth() == 14)
         assert(date1.dayOfWeek() == date4.dayOfWeek())
         assert(date2.dayOfMonth() == date3.dayOfMonth())
+        assert(date2.plusHours(1).toCalendar().get(Calendar.HOUR) == 1)
+        assert(date2.plusMinutes(2).toCalendar().get(Calendar.MINUTE) == 2)
     }
 
 }

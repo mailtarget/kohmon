@@ -8,23 +8,23 @@ class StringTest {
 
     @Test
     fun checking() {
-        assert("sasafdsfd".isAlphabetic)
-        assert("sasafdsfd".isAlphanumeric)
-        assert("sasafd121232".isContainLetters)
-        assert("sasafd121232".isContainNumbers)
-        assertFalse("sasafd121232".isNumber)
-        assert("0121221".isNumber)
-        assert("mm_m.2121@mtd-sds.online.id".isEmail)
-        assert("asasdaa.com/sasas?sasas=sasas".isWebUrl)
-        assert("192.168.0.1".isIPAddress)
-        assert("+62110".isPhoneNumber)
+        assert("sasafdsfd".isAlphabetic())
+        assert("sasafdsfd".isAlphanumeric())
+        assert("sasafd121232".isContainLetters())
+        assert("sasafd121232".isContainNumbers())
+        assertFalse("sasafd121232".isNumber())
+        assert("0121221".isNumber())
+        assert("mm_m.2121@mtd-sds.online.id".isEmail())
+        assert("asasdaa.com/sasas?sasas=sasas".isWebUrl())
+        assert("192.168.0.1".isIPAddress())
+        assert("+62110".isPhoneNumber())
     }
 
     @Test
     fun base64Test() {
         val str = "ini"
-        val base64 = str.base64Encoded
-        assert(base64.base64Decoded == str)
+        val base64 = str.base64Encoded()
+        assert(base64.base64Decoded() == str)
     }
 
     @Test
@@ -49,6 +49,16 @@ class StringTest {
         assert("ini bukan roti".capitalizeFully() == "Ini Bukan Roti")
         assert("ini bukan roti".camelCased() == "iniBukanRoti")
         assert("ini bukan roti".getMostChar() == 'i')
+    }
+
+    @Test
+    fun regexTest() {
+        val input1 = "OkeGuys"
+        val regex1 = "[a-z]+"
+        assertFalse(input1.matches(regex1.toRegex()))
+        assertFalse(input1.matches(regex1.toMatchRegex()))
+        assert(input1.matches(regex1.toContainsRegex()))
+        assert(input1.matches(regex1.toRegexIgnoreCase()))
     }
 
     private fun randomTest(randoms: Randoms) {

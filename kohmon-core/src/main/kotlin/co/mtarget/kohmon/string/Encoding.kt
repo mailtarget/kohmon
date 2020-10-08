@@ -1,18 +1,14 @@
 package co.mtarget.kohmon.string
 
+import co.mtarget.kohmon.tryOrNull
 import java.util.*
 
 /**
  * Using UTF-8 encoding
  */
-val String.base64Decoded
-    get() = try {
-        String(Base64.getDecoder().decode(toByteArray()))
-    } catch (e: IllegalArgumentException) {
-        null
-    }
+fun String.base64Decoded() = tryOrNull { String(Base64.getDecoder().decode(toByteArray())) }
 
 /**
  * Using UTF-8 encoding
  */
-val String.base64Encoded: String get() = Base64.getEncoder().encodeToString(toByteArray())
+fun String.base64Encoded(): String = Base64.getEncoder().encodeToString(toByteArray())
