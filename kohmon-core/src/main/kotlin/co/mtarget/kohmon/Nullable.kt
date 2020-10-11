@@ -1,5 +1,7 @@
 package co.mtarget.kohmon
 
+import java.util.*
+
 /**
  * throw illegal argument exception, if value is null
  */
@@ -32,3 +34,13 @@ infix fun <T> T?.orAssign(value: T?): T? = value ?: this
  * replace value when parameter is not null
  */
 infix fun String?.orAssign(str: String?): String? = if (str.isNullOrEmpty()) this else str
+
+/**
+ * from java 8 Optional<T> kotlin's nullable
+ */
+fun <T> Optional<T>.toNullable(): T? = orElse(null)
+
+/**
+ * from kotlin's nullable to java 8 Optional<T>
+ */
+fun <T> T?.toOptional(): Optional<T> = Optional.ofNullable(this)

@@ -16,9 +16,11 @@ class CoroutineTest {
         val job2 = Dispatchers.SingleThread.start {
             assert(getThreadName().contains("pool"))
         }
-        val job3 = with(Dispatchers.Unconfined.createJob()) {
+        val coroutineJob1 = Dispatchers.Unconfined.createJob()
+        val job3 = with(coroutineJob1) {
             start {
                 assert(getThreadName().contains("main"))
+                delay(2000)
             }
         }
         runIO {
@@ -30,7 +32,9 @@ class CoroutineTest {
         delay(1000)
         assert(job1.isCompleted)
         assert(job2.isCompleted)
-        assert(job3.isCompleted)
+
+        coroutineJob1.stop()
+        assert(job3.isCancelled)
     }
 
     @Test

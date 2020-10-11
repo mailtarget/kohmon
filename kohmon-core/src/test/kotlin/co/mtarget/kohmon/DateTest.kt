@@ -31,6 +31,8 @@ class DateTest {
         assert(localDate1.toDate().format() == date1.format())
         assert(localDateTime1.toDate().format() == date1.format())
         assert(zonedDateTime1.toDate().format() == date1.format())
+        val zonedDateTime2 = zonedDateTime1.withTime(8)
+        assert(zonedDateTime2.hour == 8)
     }
 
     @Test

@@ -2,6 +2,8 @@ package co.mtarget.kohmon
 
 import co.mtarget.kohmon.string.toBoolean
 import org.junit.Test
+import java.util.*
+import kotlin.test.assertFalse
 
 class NullableTest {
 
@@ -35,5 +37,14 @@ class NullableTest {
         val str3 = str2.orAssign(null)
         assert(str2 == "1")
         assert(str3 == "1")
+    }
+
+    @Test
+    fun optionalTest() {
+        val str1 = ""
+        val int1: Optional<Int> = str1.toIntOrNull().toOptional()
+        assertFalse(int1.isPresent)
+        val int2: Int = int1.toNullable().default(1)
+        assert(int2 == 1)
     }
 }

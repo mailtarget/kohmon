@@ -1,9 +1,6 @@
 package co.mtarget.kohmon.date
 
-import java.time.LocalDate
-import java.time.LocalDateTime
-import java.time.ZoneId
-import java.time.ZonedDateTime
+import java.time.*
 import java.util.*
 
 val timeZoneDefault = ZoneId.systemDefault()
@@ -24,3 +21,6 @@ fun Date.toZonedDateTime(zoneId: ZoneId = timeZoneDefault): ZonedDateTime =
         ZonedDateTime.ofInstant(toInstant(), zoneId)
 
 fun ZonedDateTime.toDate(): Date = Date.from(this.toInstant())
+
+fun ZonedDateTime.withTime(hour: Int = 0, minute: Int = 0, second: Int = 0) =
+        with(LocalTime.of(hour, minute, second))

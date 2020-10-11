@@ -4,7 +4,7 @@ import java.security.SecureRandom
 import kotlin.experimental.and
 
 val ALPHANUMERIC_CHAR = ('a'..'z') + ('A'..'Z') + ('0'..'9')
-val ALPHALOWERCASENUMERIC_CHAR = ('a'..'z') + ('0'..'9')
+val ALPHANUMERIC_LOWERCASE_CHAR = ('a'..'z') + ('0'..'9')
 
 open class Randoms(private val chars: List<Char>, private val length: Int = 16) {
     private val random = SecureRandom()
@@ -20,4 +20,4 @@ open class Randoms(private val chars: List<Char>, private val length: Int = 16) 
 
 object RandomString: Randoms(ALPHANUMERIC_CHAR)
 
-object RandomLowercase: Randoms(ALPHALOWERCASENUMERIC_CHAR)
+object RandomLowercase: Randoms(ALPHANUMERIC_LOWERCASE_CHAR)
