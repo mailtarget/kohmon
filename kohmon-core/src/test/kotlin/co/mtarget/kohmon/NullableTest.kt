@@ -34,7 +34,7 @@ class NullableTest {
     fun nullStringTest() {
         val str1: String? = null
         val str2 = str1.default("1")
-        val str3 = str2.orAssign(null)
+        val str3 = str2.orAssign("")
         assert(str2 == "1")
         assert(str3 == "1")
     }

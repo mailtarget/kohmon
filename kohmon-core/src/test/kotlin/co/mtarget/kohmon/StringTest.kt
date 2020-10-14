@@ -14,8 +14,11 @@ class StringTest {
         assert("sasafd121232".isContainNumbers())
         assertFalse("sasafd121232".isNumber())
         assert("0121221".isNumber())
+        assert("0121221".isNumericOnly())
+        assert("0121221".isHexString())
         assert("mm_m.2121@mtd-sds.online.id".isEmail())
         assert("asasdaa.com/sasas?sasas=sasas".isWebUrl())
+        assertFalse("asasdaa.com/sasas?sasas=sasas".isUrl())
         assert("192.168.0.1".isIPAddress())
         assert("+62110".isPhoneNumber())
     }
