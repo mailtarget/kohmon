@@ -7,7 +7,7 @@ import kotlin.test.assertNull
 
 class ValidationTest {
 
-    data class Contact(val email: String, val name: String = "", val age: Int = 18)
+    private data class Contact(val email: String, val name: String = "", val age: Int = 18)
     private val contact = Contact("masasdn@gmail.com")
 
     @Test
