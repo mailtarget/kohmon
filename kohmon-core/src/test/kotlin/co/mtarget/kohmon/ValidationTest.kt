@@ -8,7 +8,7 @@ import kotlin.test.assertNull
 class ValidationTest {
 
     data class Contact(val email: String, val name: String = "", val age: Int = 18)
-    val contact = Contact("masasdn@gmail.com")
+    private val contact = Contact("masasdn@gmail.com")
 
     @Test
     fun validTest() {
