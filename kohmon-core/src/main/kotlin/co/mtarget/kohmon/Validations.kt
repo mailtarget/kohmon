@@ -7,7 +7,7 @@ fun <T> T.validate(message: String = VALIDATION_MESSAGE, block: T.() -> Boolean)
     return this
 }
 
-fun <T> T.validateOrNull(message: String = VALIDATION_MESSAGE, block: T.() -> Boolean): T? {
+fun <T> T.validateOrNull(block: T.() -> Boolean): T? {
     return if (block(this)) this
     else null
 }
