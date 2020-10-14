@@ -5,7 +5,7 @@ import java.util.*
 /**
  * throw illegal argument exception, if value is null
  */
-fun <T> T?.required(message: String = "required value must not be null"): T = this ?: illegal(message)
+fun <T> T?.required(message: String = "required value, must not be null"): T = this ?: illegal(message)
 
 /**
  * throw illegal argument exception, if boolean expression is false

@@ -12,7 +12,7 @@ class ValidationTest {
 
     @Test
     fun validTest() {
-        val validContact: Contact? = contact
+        val validContact: Contact? = contact.required()
                 .validate { email.isEmail() }
                 .validate { age >= 18 }
 
