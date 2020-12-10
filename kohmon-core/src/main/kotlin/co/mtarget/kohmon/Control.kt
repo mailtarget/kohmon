@@ -33,3 +33,15 @@ suspend fun <T> retryNull(until: Int, block: suspend (Int) -> T): T {
     // last time just invoke regardless result
     return block(0)
 }
+
+/**
+ * helper non null value assignment
+ */
+inline fun <T, R> T?.ifNotNull(block: (T) -> R): R? = this?.let { block(it) }
+
+/**
+ * helper non null or empty String assignment
+ */
+inline fun <R> String?.ifNotNullOrEmpty(block: (String) -> R): R? {
+    return if (this.isNullOrEmpty()) null else block(this)
+}

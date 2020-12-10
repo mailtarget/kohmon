@@ -33,6 +33,10 @@ class StringTest {
     @Test
     fun stringHtmlTest() {
         val str = "<article><div><h1>title</ht></div></article>"
+        val str2 = "Hi this is html <article><div><h1>title</ht></div></article> is it true "
+        val str3 = "Hi this is html <script>alert(\"test alert\")</script> is it true "
+        assert(str2.isHtml())
+        assert(str3.isHtml())
         assert(str.isHtml())
         assertFalse(str.isHtmlContainsBody())
     }
