@@ -20,9 +20,9 @@ pipeline {
   }
   post {
         always {
-            archiveArtifacts artifacts: '?/.m2/repository/co/mtarget/sekidul/**/*.jar', fingerprint: true
-            archiveArtifacts artifacts: '?/.m2/repository/co/mtarget/sekidul/**/*.pom', fingerprint: true
-            archiveArtifacts artifacts: '?/.m2/repository/co/mtarget/sekidul/**/*.module', fingerprint: true
+            archiveArtifacts artifacts: '?/.m2/repository/co/mtarget/**/**/*.jar', fingerprint: true
+            archiveArtifacts artifacts: '?/.m2/repository/co/mtarget/**/**/*.pom', fingerprint: true
+            archiveArtifacts artifacts: '?/.m2/repository/co/mtarget/**/**/*.module', fingerprint: true
         }
     }
 }
