@@ -25,3 +25,4 @@ pipeline {
             archiveArtifacts artifacts: '?/.m2/repository/co/mtarget/sekidul/**/*.module', fingerprint: true
         }
     }
+}
