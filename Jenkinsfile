@@ -5,8 +5,10 @@ pipeline {
       args '-v /tmp:/tmp'
       reuseNode true
     }
-
   }
+  options {
+        copyArtifactPermission('mtarget-backend/*,vesko/*');
+    }
   stages {
     stage('Build') {
       steps {
