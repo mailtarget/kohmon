@@ -11,8 +11,8 @@ allprojects {
 subprojects {
     buildscript {
         ext {
-            kotlin_version = '1.5.20'
-            coroutine_version = '1.5.0'
+            kotlin_version = '1.6.21'
+            coroutine_version = '1.6.1'
             logback_version = '1.2.3'
             junit_version = '4.12'
         }
