@@ -1,7 +1,6 @@
 package co.mtarget.kohmon.string
 
 import co.mtarget.kohmon.tryOrNull
-import java.net.MalformedURLException
 import java.net.URL
 
 /**

@@ -1,7 +1,5 @@
 package co.mtarget.kohmon
 
-import java.lang.IllegalArgumentException
-
 /**
  * get stackTrace from exception, usable in logging error
  */

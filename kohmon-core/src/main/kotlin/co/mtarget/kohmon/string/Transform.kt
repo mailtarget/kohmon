@@ -1,7 +1,5 @@
 package co.mtarget.kohmon.string
 
-import java.util.HashMap
-
 fun String.toBoolean(): Boolean {
     return this != ""
             && (this.equals("TRUE", ignoreCase = true)
