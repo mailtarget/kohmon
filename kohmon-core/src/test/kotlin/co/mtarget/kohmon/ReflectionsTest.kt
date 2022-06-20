@@ -7,7 +7,7 @@ import kotlin.test.assertNotNull
 
 class ReflectionsTest {
 
-    private val listCounter = Counter(listOf("a", "b", "c"))
+    private val listCounter = Counter(listOf("a", "b", "c"), 3)
     private val responseData = ResponseData<MapData>(hashMapOf("foo" to "bar"))
 
     class Data (val data: MapData) {
@@ -18,7 +18,7 @@ class ReflectionsTest {
 
     @Test
     fun counterTest() {
-        assert(listCounter.count == 3)
+        assert(listCounter.count == 3L)
     }
 
     @Test
