@@ -7,7 +7,7 @@ pipeline {
     }
   }
   options {
-        copyArtifactPermission('../mtarget-backend/*,../vesko/*,../kohmon/*');
+        copyArtifactPermission('../mtarget-backend/*,../vesko/*,../kohmon/*,../sekidul/*');
     }
   stages {
     stage('Build') {
