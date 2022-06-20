@@ -43,4 +43,4 @@ fun <T> Optional<T>.toNullable(): T? = orElse(null)
 /**
  * from kotlin's nullable to java 8 Optional<T>
  */
-fun <T> T?.toOptional(): Optional<T> = Optional.ofNullable(this)
+fun <T : Any> T?.toOptional(): Optional<T> = Optional.ofNullable(this)

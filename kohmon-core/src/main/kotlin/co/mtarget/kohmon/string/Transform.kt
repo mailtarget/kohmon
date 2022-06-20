@@ -1,7 +1,5 @@
 package co.mtarget.kohmon.string
 
-import java.util.HashMap
-
 fun String.toBoolean(): Boolean {
     return this != ""
             && (this.equals("TRUE", ignoreCase = true)
@@ -17,7 +15,7 @@ fun String.splitComma(): List<String> = split(",").map { it.trim() }
 /**
  * Capitalize every word in string
  */
-fun String.capitalizeFully(): String = split(" ").joinToString(" ") { it.toLowerCase().capitalize() }
+fun String.capitalizeFully(): String = split(" ").joinToString(" ") { it.lowercase().capitalize() }
 
 /**
  * Count characters in string
@@ -28,12 +26,12 @@ fun String.countChar(c: Char) = this.count { it == c }
  * Splits by spaces, newlines, and tabs only
  */
 fun String.camelCased(): String {
-    val split = toLowerCase().split(' ', '\n', '\t').toMutableList()
+    val split = lowercase().split(' ', '\n', '\t').toMutableList()
     if (split.size > 1) {
         for (i in 1 until split.size) {
             if (split[i].length > 1) {
                 val charArray = split[i].toCharArray()
-                charArray[0] = charArray[0].toUpperCase()
+                charArray[0] = charArray[0].uppercaseChar()
                 split[i] = String(charArray)
             }
         }
