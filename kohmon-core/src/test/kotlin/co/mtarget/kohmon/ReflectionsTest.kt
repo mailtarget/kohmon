@@ -18,7 +18,7 @@ class ReflectionsTest {
 
     @Test
     fun counterTest() {
-        assert(listCounter.count == 3L)
+        assert(listCounter.count == 3)
     }
 
     @Test
