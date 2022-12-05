@@ -1,7 +1,6 @@
 package co.mtarget.kohmon.string
 
 import java.util.*
-import kotlin.collections.HashMap
 
 fun String.toBoolean(): Boolean {
     return this != ""
