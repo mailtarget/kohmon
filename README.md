@@ -8,7 +8,7 @@ Collection of kotlin common helper
 To use in gradle project
     
     dependencies {
-        implementation "co.mtarget:kohmon-core:0.0.7"
+        implementation "co.mtarget:kohmon-core:0.0.9"
     }
     
 
