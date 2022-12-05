@@ -1,5 +1,8 @@
 package co.mtarget.kohmon.string
 
+import java.util.*
+import kotlin.collections.HashMap
+
 fun String.toBoolean(): Boolean {
     return this != ""
             && (this.equals("TRUE", ignoreCase = true)
@@ -15,7 +18,8 @@ fun String.splitComma(): List<String> = split(",").map { it.trim() }
 /**
  * Capitalize every word in string
  */
-fun String.capitalizeFully(): String = split(" ").joinToString(" ") { it.lowercase().capitalize() }
+fun String.capitalizeFully(): String = split(" ").joinToString(" ") { it.lowercase()
+    .replaceFirstChar { if (it.isLowerCase()) it.titlecase(Locale.getDefault()) else it.toString() } }
 
 /**
  * Count characters in string

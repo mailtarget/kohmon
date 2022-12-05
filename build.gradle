@@ -1,6 +1,6 @@
 allprojects {
     group = "co.mtarget"
-    version = "0.0.8"
+    version = "0.0.9"
 
     repositories {
         mavenCentral()
@@ -11,8 +11,8 @@ allprojects {
 subprojects {
     buildscript {
         ext {
-            kotlin_version = '1.7.0'
-            coroutine_version = '1.6.2'
+            kotlin_version = '1.7.22'
+            coroutine_version = '1.6.4'
             logback_version = '1.2.3'
             junit_version = '4.12'
         }
