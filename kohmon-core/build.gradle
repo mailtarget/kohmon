@@ -5,4 +5,5 @@ dependencies {
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutine_version"
 
     implementation "ch.qos.logback:logback-classic:$logback_version"
+    implementation "org.slf4j:slf4j-api:1.7.30"
 }
