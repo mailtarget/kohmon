@@ -36,6 +36,26 @@ java {
 }
 
 publishing {
+    publications {
+        maven(MavenPublication) {
+            artifact("build/libs/kohmon-core-$version"+".jar") {
+                extension 'jar'
+            }
+        }
+    }
+    repositories {
+        maven {
+            name 'nexus'
+            url "https://nexus.lab.mtarget.dev/repository/maven-releases/"
+            credentials {
+                username project.repoUser
+                password project.repoPassword
+            }
+        }
+    }
+}
+
+/*publishing {
     repositories {
         maven {
             name = "OSSRH"
@@ -83,4 +103,4 @@ publishing {
 
 signing {
     sign publishing.publications.mavenJava
-}
+}*/
